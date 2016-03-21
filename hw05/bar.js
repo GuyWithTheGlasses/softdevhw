@@ -21,57 +21,87 @@ d3.select(".chart")
 
 //Within each entry: data[0] = Trump, data[1] = Cruz, data[2] = Rubio, data[3] = Kasich
 var repdata = {
-    "Iowa":[7,8,7,1],
-    "New Hampshire":[11,3,2,4],
-    "South Carolina":[50,0,0,0], 
-    "Nevada":[14,6,7,1], 
-    "Alabama":[36,13,1,0], 
-    "Alaska":[11,12,5,0], 
-    "Arkansas":[16,14,9,0], 
-    "Georgia":[40,18,14,0], 
-    "Massachusetts":[22,4,8,8], 
-    "Minnesota":[8,13,17,0], 
-    "Oklahoma":[13,15,12,0], 
-    "Tennesee":[33,16,9,0], 
-    "Texas":[48,104,3,0], 
-    "Vermont":[8,0,0,8], 
-    "Virginia":[17,8,16,5], 
-    "Kansas":[9,24,6,1], 
-    "Kentucky":[17,15,7,7], 
-    "Louisiana":[18,18,5,0], 
-    "Maine":[9,12,0,2], 
-    "Puerto Rico":[0,0,23,0], 
-    "Hawaii":[11,7,1,0], 
-    "Idaho":[12,20,0,0], 
-    "Michigan":[25,17,0,17], 
-    "Mississippi":[24,13,0,0], 
-    "District of Columbia":[0,0,10,9], 
-    "Wyoming":[1,9,1,0], 
-    "Florida":[99,0,0,0], 
-    "Illinois":[51,9,0,5], 
-    "Missouri":[25,5,0,0], 
-    "North Carolina":[29,27,6,9], 
-    "Northern Mariana Islands":[9,0,0,0], 
-    "Ohio":[0,0,0,66]
+    "Alabama":50, 
+    "Alaska":28, 
+    "Arizona":0.059,
+    "Arkansas":39, 
+    "California":0.172,
+    "Connecticut":0.028,
+    "Delaware":0.016,
+    "District of Columbia":19,
+    "Florida":99, 
+    "Georgia":72, 
+    "Hawaii":19, 
+    "Idaho":32, 
+    "Illinois":65,
+    "Indiana":0.057, 
+    "Iowa":23,
+    "Kansas":40, 
+    "Kentucky":46, 
+    "Louisiana":41, 
+    "Maine":23, 
+    "Maryland":0.038,
+    "Massachusetts":42, 
+    "Michigan":59, 
+    "Minnesota":38, 
+    "Mississippi":37, 
+    "Missouri":30, 
+    "Montana":0.027,
+    "Nebraska":0.036,
+    "Nevada":28, 
+    "New Hampshire":20,
+    "New Jersey":0.051,
+    "New Mexico":0.024,
+    "New York":0.095,
+    "North Carolina":71, 
+    "North Dakota":0.028,
+    "Northern Mariana Islands":9, 
+    "Ohio":66,
+    "Oklahoma":40, 
+    "Oregon":0.028,
+    "Pennsylvania":0.071,
+    "Puerto Rico":23, 
+    "Rhode Island":0.019,
+    "South Carolina":50,
+    "South Dakota":0.029
+    "Tennesee":58, 
+    "Texas":155, 
+    "Utah":0.040,
+    "Vermont":16, 
+    "Virginia":46, 
+    "Washington":0.044,
+    "West Virginia":0.034,
+    "Wisconsin":0.042,
+    "Wyoming":11, 
 }
 var states = Object.keys(repdata);
 console.log(states);
 
+
+
 var foo = d3.scale.linear()
-    .domain([0,200])
+    .domain([0,250])
     .range([0,1920]);
 
 d3.select(".chart")
     .selectAll("div")
   .data(states)
-    .enter().append("div")
+    .enter().append("div").transition()
+  .style("background-color", function(d){
+      var dels = repdata[d];
+      if(dels < 1){
+	  repdata[d] = dels*1000;
+	  return "#ff9999";
+      }
+  })
   .style("width", function(d){
-      var dies = repdata[d][0] + repdata[d][1] + repdata[d][2] + repdata[d][3];
+      var dies = repdata[d];
       return foo(dies) + "px";
   })
   .text(function(d){
-      return d;
+      return d + ": " + repdata[d];
   });
+
 
 
 
