@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Raising the Bar</title>
+    <style>
+      .chart div {
+      font: 10px sans-serif;
+      background-color: steelblue;
+      color: white;
+      text-align: right;
+      padding: 2px;
+      margin: 1px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="chart"></div>
+  </body>
+
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script>
+    <!--
+    console.log("hello, it's me");
+    var data = [4,8,15,16,23,42];
+    var chart = d3.select(".chart");
+    var bar = chart.selectAll("div");
+    var barUpdate = bar.data(data);
+    var barEnter = barUpdate.enter().append("div");
+    barEnter.style("width", function(d){ return d*10 + "px"; });
+    barEnter.text(function(d){ return d; });
+    -->
+    d3.select(".chart")
+      .selectAll("div")
+        .data(data)
+      .enter().append("div")
+        .style("width", function(d) {
+            return d*10 + "px"; })
+        .text(function(d) { return d; });
+  </script>
+</html>
