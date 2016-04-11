@@ -26,7 +26,7 @@ closure = runtime(qsort.qsort)
 closure(array)
 
 #---------------------------------------------------------------------------#
-#Idk what is happening here
+#Idk what is happening here doesn't quite work
 #2. Write a function that outputs another function's name and arguments 
 
 def get_function(fn):
@@ -46,3 +46,27 @@ def set_diff(a,u):
 l1 = [0,1,2,3,4,5,6,7,8]
 l2 = [4,5,6,7,8,9,10,11,12]
 #print set_diff(l1,l2)
+
+#---------------------------------------------------------------------------#
+#a simple example of applying multiple decorators
+def make_bold(fn):
+    print fn()
+    return lambda : "<b>" + fn() + "</b>"
+
+def make_italic(fn):
+    print fn()
+    return lambda : "<i>" + fn() + "</i>"
+
+def make_underline(fn):
+    print fn()
+    return lambda : "<u>" + fn() + "</u>"
+
+@make_bold
+@make_italic
+@make_underline
+def hello():
+    return "hello world"
+
+helloHTML = hello()
+
+print helloHTML
