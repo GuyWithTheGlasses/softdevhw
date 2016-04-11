@@ -1,3 +1,5 @@
+#4/8/16 Classwork
+
 import time, qsort
 
 #1. Make a function that logs the runtime of another function
@@ -8,18 +10,6 @@ def runtime(f):
         end = time.time()
         print "execution time: "+str(end-start)
     return inner
-
-"""
-#Taking qsort from hw07 for testing purposes 
-def qsort(a):
-    #Quicksorts an array a
-    if(len(a) <= 1):
-        return a
-    pivot = a[0]
-    small = [x for x in a if x < pivot]
-    big = [x for x in a if x > pivot]
-    return qsort(small) + [pivot] + qsort(big)
-"""
     
 array = [20,51,100,14,5,76,1,22,34,29,11,5,6,1,4,6,6,3,63,5345,3445,3,534,53,53,4534,5,35,34,534,5,345,345,34534,65]
 closure = runtime(qsort.qsort)
