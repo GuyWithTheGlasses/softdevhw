@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template, request
 import time, json, readfile
 from functools import wraps
 
@@ -10,16 +10,16 @@ def timer(fn):
     @wraps(fn)
     def inner(*args):
         start = time.time()
-        retval = fn()
+        retval = fn(*args)
         print str(time.time() - start)
-        return fn()
+        return retval
     return inner
 
 def get_func(fn):
     @wraps(fn)
     def inner(*args):
-        print fn.func_name + str(args)
-        return fn()
+        print fn.func_name, args
+        return fn(*args)
     return inner
 
 #Prints the name and time it took to run a function

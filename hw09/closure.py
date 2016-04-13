@@ -13,6 +13,7 @@ def runtime(f):
     
 array = [20,51,100,14,5,76,1,22,34,29,11,5,6,1,4,6,6,3,63,5345,3445,3,534,53,53,4534,5,35,34,534,5,345,345,34534,65]
 closure = runtime(qsort.qsort)
+
 closure(array)
 
 #---------------------------------------------------------------------------#
@@ -20,13 +21,10 @@ closure(array)
 #2. Write a function that outputs another function's name and arguments 
 
 def get_function(fn):
-    args = fn.__code__.co_varnames
-    retS = ""
-    for i in range(len(args)-1):
-        retS = retS + args[i] + ", "
-    retS = retS + args[len(args)-1]
-    
-    return lambda: fn.func_name + "(" + retS + ")"
+    def inner(*args):
+        print fn.func_name, args
+        return fn(*args)
+    return inner
         
 #Copied from hw08 
 @get_function
@@ -46,7 +44,6 @@ def make_bold(fn):
 def make_italic(fn):
     print fn()
     return lambda : "<i>" + fn() + "</i>"
-
 def make_underline(fn):
     print fn()
     return lambda : "<u>" + fn() + "</u>"
