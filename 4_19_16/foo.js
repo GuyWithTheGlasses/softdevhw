@@ -37,3 +37,42 @@ function makeAdder(n){
     };
     return inc
 };
+
+//Make a counter
+var makeCounter = function makeCounter(){
+    //inst var
+    var i = 0;
+    var x = "somebody once told me";
+
+    var get = function(){
+	return i;
+    };
+    var set = function(n){
+	i = n;
+    };
+    var inc = function(){
+	i++;
+    };
+    var dec = function(){
+	i--;
+    };
+    var getx = function(){
+	return x;
+    };
+    var setx = function(s){
+	x = s;
+    };
+    
+    //means of accessing members
+    return {
+	x : x,
+	get : get,
+	set : set,
+	inc : inc,
+	dec : dec,
+	getx : getx,
+	setx : setx,
+    };
+};
+
+var wat = makeCounter();
