@@ -7,7 +7,45 @@
     <!-- {{{yield-styles}}} -->
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
+      button{
+      background-color: #00b359;
+      position: absolute;
+      margin: 1% 0px 2% 29%;
+      padding: 30px 30px;
+      font-size: 50px;
+      }
       
+      #check{
+      padding-top: 6px;
+      padding-bottom: 6px;
+      padding-left: 20px;
+      font-style: italic;
+      }
+
+      #courses, .form-entry{
+      padding-left: 29%;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      font-size: 25px;
+      }
+
+      form{
+      margin-top: 1%;
+      font-family: Helveltica Neue, Helvetica, sans-serif;
+      }
+      
+      input{
+      font-size: 25px;
+      }
+
+      label, td{
+      font-weight: bold;
+      }
+
+      .table-head{
+      text-align: center;
+      font-weight: bold;
+      }
     </style>
   </head>
   <body>
@@ -22,23 +60,50 @@
       <a href="<!--Dunno what goes here-->">Logout</a>
     </div>
     <!-- This logout feature should be on all pages too -->
-    
-    <form id="form-stuff">
-      <label for="student">Name:</label>
-      <input type="text" name="student">
-      <br>
-      <label for="OSIS">OSIS#:</label>
-      <input type="number" name="OSIS"> <!-- verify that is 9-digit number -->
-      <br>
-      <label for="excused_date">Date of Absence, Lateness, or Cut:</label>
-      <input type="text" name="excused_date">
-      <br>
-      <label for="excuse">Explanation:</label>
-      <input type="text" name="excuse">
-      <br>
-      <label for="parent.name">Parent's Name:</label>
-      <input type="text" name="parent.name">
-      <br>
+
+    <form id="form-main">
+      <div class="form-entry">
+	<label for="excused">Excused:</label>
+	<br>
+	<input type="radio" name="excused" value="absence-excuse">Absence
+	<input type="radio" name="excused" value="lateness-excuse">Lateness
+	<div id="check">(check one)</div>
+	<label>Corrections:</label>
+	<br>
+	<input type="radio" name="excused" value="absence-correction">Absence
+	<input type="radio" name="excused" value="lateness-correction">Lateness
+	<input type="radio" name="excused" value="cuts">Cuts
+      </div>
+
+      <div class="form-entry">
+	<label for="student">Name:</label>
+	<br>
+	<input type="text" name="student">
+      </div>
+
+      <div class="form-entry">
+	<label for="OSIS">OSIS#:</label>
+	<br>
+	<input type="number" name="OSIS"> <!-- verify that is 9-digit number -->
+      </div>
+
+      <div class="form-entry">
+	<label for="excused_date">Date of Absence, Lateness, or Cut:</label>
+	<br>
+	<input type="text" name="excused_date">
+      </div>
+      
+      <div class="form-entry">
+	<label for="excuse">Explanation:</label>
+	<br>
+	<input type="text" name="excuse">
+      </div>
+      
+      <div class="form-entry">
+	<label for="parent.name">Parent's Name:</label>
+	<br>
+	<input type="text" name="parent.name">
+      </div>
       
       <table id="courses">
 	<tr>
@@ -97,8 +162,8 @@
 	  <td><input type="text" name="10code"></td>
 	</tr>
       </table>
-
+      <button class="btn">Submit</button>
     </form>
-
+    
   </body>
 </html>
