@@ -6,7 +6,7 @@
 
     <!-- {{{yield-styles}}} -->
     <link rel="stylesheet" type="text/css" href="style.css">
-
+    
   </head>
   <body>
 
@@ -22,62 +22,81 @@
     <!-- This logout feature should be on all pages too -->
     
     <form id="form-stuff">
-      <label for="name">Name:</label>
-      <input type="text" name="name">
+      <label for="student">Name:</label>
+      <input type="text" name="student">
       <br>
-      <label for="osis">OSIS#:</label>
-      <input type="number" name="osis"> <!-- verify that is 9-digit number -->
+      <label for="OSIS">OSIS#:</label>
+      <input type="number" name="OSIS"> <!-- verify that is 9-digit number -->
       <br>
-      <label for="date">Date of Absence, Lateness, or Cut:</label>
-      <input type="text" name="date">
+      <label for="excused_date">Date of Absence, Lateness, or Cut:</label>
+      <input type="text" name="excused_date">
       <br>
-      <label for="explanation">Explanation:</label>
-      <input type="text" name="explanation">
+      <label for="excuse">Explanation:</label>
+      <input type="text" name="excuse">
       <br>
-      <label for="parents">Parent's Name:</label>
-      <input type="text" name="parents">
+      <label for="parent.name">Parent's Name:</label>
+      <input type="text" name="parent.name">
       <br>
-      <label for="1name">Pd. 1 Teacher's Name:</label>
-      <input type="text" name="1name">
-      <br>
-      <label for="2name">Pd. 2 Teacher's Name:</label>
-      <input type="text" name="2name">
-      <br>
-      <label for="3name">Pd. 3 Teacher's Name:</label>
-      <input type="text" name="3name">
-      <br>
-      <label for="4name">Pd. 4 Teacher's Name:</label>
-      <input type="text" name="4name">
-      <br>
-      <label for="5name">Pd. 5 Teacher's Name:</label>
-      <input type="text" name="5name">
-      <br>
-      <label for="6name">Pd. 6 Teacher's Name:</label>
-      <input type="text" name="6name">
-      <br>
-      <label for="7name">Pd. 7 Teacher's Name:</label>
-      <input type="text" name="7name">
-      <br>
-      <label for="8name">Pd. 8 Teacher's Name:</label>
-      <input type="text" name="8name">
-      <br>
-      <label for="9name">Pd. 9 Teacher's Name:</label>
-      <input type="text" name="9name">
-      <br>
-      <label for="10name">Pd. 10 Teacher's Name:</label>
-      <input type="text" name="10name">
-      <br>
-      <label for="1code">Course Code:</label>
-      <input type="text" name="1code">
+      
+      <table id="courses">
+	<tr>
+	  <td></td>
+	  <td class="table-head">Teacher's Name</td>
+	  <td class="table-head">Course Code</td>
+	</tr>
+	<tr>
+	  <td>Pd. 1</td>
+	  <td><input type="text" name="1name"></td>
+	  <td><input type="text" name="1code"></td>
+	</tr>
+	<tr>
+	  <td>Pd. 2</td>
+	  <td><input type="text" name="2name"></td>
+	  <td><input type="text" name="2code"></td>
+	</tr>
+	<tr>
+	  <td>Pd. 3</td>
+	  <td><input type="text" name="3name"></td>
+	  <td><input type="text" name="3code"></td>
+	</tr>
+	<tr>
+	  <td>Pd. 4</td>
+	  <td><input type="text" name="4name"></td>
+	  <td><input type="text" name="4code"></td>
+	</tr>
+	<tr>
+	  <td>Pd. 5</td>
+	  <td><input type="text" name="5name"></td>
+	  <td><input type="text" name="5code"></td>
+	</tr>
+	<tr>
+	  <td>Pd. 6</td>
+	  <td><input type="text" name="6name"></td>
+	  <td><input type="text" name="6code"></td>
+	</tr>
+	<tr>
+	  <td>Pd. 7</td>
+	  <td><input type="text" name="7name"></td>
+	  <td><input type="text" name="7code"></td>
+	</tr>
+	<tr>
+	  <td>Pd. 8</td>
+	  <td><input type="text" name="8name"></td>
+	  <td><input type="text" name="8code"></td>
+	</tr>
+	<tr>
+	  <td>Pd. 9</td>
+	  <td><input type="text" name="9name"></td>
+	  <td><input type="text" name="9code"></td>
+	</tr>
+	<tr>
+	  <td>Pd. 10</td>
+	  <td><input type="text" name="10name"></td>
+	  <td><input type="text" name="10code"></td>
+	</tr>
+      </table>
 
-      <label for="2code">Course Code:</label>
-      <input type="text" name="2code">
-
-      <label for="3code">Course Code:</label>
-      <input type="text" name="3code">
-
-      <label for="4code">Course Code:</label>
-      <input type="text" name="4code">
     </form>
+
   </body>
 </html>
