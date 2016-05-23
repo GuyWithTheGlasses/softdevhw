@@ -28,6 +28,11 @@
       padding-bottom: 5px;
       font-size: 25px;
       }
+      
+      #error{
+      padding-left: 29%;
+      color: red;
+      }
 
       form{
       margin-top: 1%;
@@ -60,6 +65,8 @@
       <a href="<!--Dunno what goes here-->">Logout</a>
     </div>
     <!-- This logout feature should be on all pages too -->
+
+    <div id="error"></div>
 
     <form id="form-main">
       <div class="form-entry">
@@ -162,8 +169,18 @@
 	  <td><input type="text" name="10code"></td>
 	</tr>
       </table>
-      <button class="btn">Submit</button>
+      <button id="submit" class="btn">Submit</button>
     </form>
-    
+    <script src="foreach.js"></script>
+    <script src="ajax.js"></script>
+    <script>
+      var submitbtn = document.getElementById("submit");
+      var form = document.getElementById("form-main");
+      var error = document.getElementById("error");
+      submitbtn.addEventListener("click", function(){
+      submit(form, error);
+      <!-- improper use of submit - what to put in <ajaxOpts>? -->
+      });
+    </script>
   </body>
 </html>
